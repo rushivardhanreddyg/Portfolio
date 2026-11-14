@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rushi Vardhan Reddy G – Java Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#0f1b2d; --muted:#506078; --line:#d3dae3;
+  --accent:#0b6e78; --accent-ink:#ffffff; --amber:#b87900; --code-bg:#0f1b2d; --code-ink:#dbe6f3; --code-key:#7fd6df; --code-str:#f0c46a;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1522; --surface:#142133; --ink:#eaf0f7; --muted:#9db0c8; --line:#26374d;
+    --accent:#5cc6d0; --accent-ink:#0c1522; --amber:#f0b848; --code-bg:#07101b; --code-ink:#dbe6f3; --code-key:#7fd6df; --code-str:#f0c46a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1522; --surface:#142133; --ink:#eaf0f7; --muted:#9db0c8; --line:#26374d;
+  --accent:#5cc6d0; --accent-ink:#0c1522; --amber:#f0b848; --code-bg:#07101b; --code-ink:#dbe6f3; --code-key:#7fd6df; --code-str:#f0c46a;
+  color-scheme: dark;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:1.0625rem;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.5rem}
+.brand{font-weight:800;text-decoration:none;letter-spacing:-.01em}
+.nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;overflow-x:auto}
+.nav a.l{text-decoration:none;color:var(--muted);font-size:.95rem;white-space:nowrap}
+.nav a.l:hover{color:var(--ink)}
+section{padding:4.5rem 0 0}
+h1,h2,h3{line-height:1.1;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:800;max-width:16ch}
+h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800;margin-bottom:1.5rem}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0 0 1rem;max-width:65ch}
+.muted{color:var(--muted)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;padding-top:4rem}
+.hero p.lead{font-size:1.2rem;color:var(--muted);margin-top:1.4rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{filter:brightness(1.08)}
+.api{background:var(--code-bg);color:var(--code-ink);border-radius:12px;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88rem;line-height:1.65}
+.api .req{padding:.7rem 1rem;border-bottom:1px solid #26374d;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.api .get{color:#7fe0a0;font-weight:700}
+.api .status{color:#7fe0a0}
+.api pre{margin:0;padding:1rem;overflow-x:auto}
+.k{color:var(--code-key)}.s{color:var(--code-str)}
+.cursor{display:inline-block;width:.55em;height:1.05em;background:var(--code-str);vertical-align:text-bottom;animation:blink 1.1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+/* rows */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:11rem 1fr;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--line)}
+.row dt{font-weight:600;color:var(--muted)}
+.row dd{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tags span{border:1px solid var(--line);background:var(--surface);padding:.2rem .7rem;border-radius:999px;font-size:.92rem}
+/* experience + projects */
+.role{border-left:4px solid var(--accent);padding-left:1.25rem}
+.role ul,.proj ul{margin:.8rem 0 1rem;padding-left:1.1rem}
+.role li,.proj li{margin-bottom:.4rem;max-width:65ch}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.proj{border-top:4px solid var(--amber);padding-top:1.1rem}
+.proj .tags{margin-top:.9rem}
+.edu{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.4rem 0}
+.strengths{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin:0;padding:0;list-style:none;font-weight:600}
+.strengths li::before{content:"";display:inline-block;width:.55rem;height:.55rem;background:var(--accent);border-radius:50%;margin-right:.55rem}
+.contact a.big{font-size:clamp(1.4rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em;word-break:break-word}
+.links{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.4rem}
+footer{padding:4rem 0 2.5rem;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:2rem}
+  .row{grid-template-columns:1fr;gap:.5rem}
+  .projects{grid-template-columns:1fr}
+  .nav ul{gap:.9rem}
+}
+@media (prefers-reduced-motion: reduce){.cursor{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Rushi Vardhan Reddy G</a>
+    <nav aria-label="Sections"><ul>
+      <li><a class="l" href="#about">About</a></li>
+      <li><a class="l" href="#skills">Skills</a></li>
+      <li><a class="l" href="#experience">Experience</a></li>
+      <li><a class="l" href="#projects">Projects</a></li>
+      <li><a class="l" href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <h1>I build Java back ends and Angular front ends.</h1>
+      <p class="lead">Computer Science (AI) student at MITS, with a Java full stack internship behind me. I also write clearly in Telugu and English.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="mailto:rushivardhanreddyg@gmail.com">Email me</a>
+      </div>
+    </div>
+    <div class="api" role="img" aria-label="A sample API response describing Rushi: Java full stack developer, Telugu and English speaker, B.Tech student graduating 2027">
+      <div class="req"><span><span class="get">GET</span> /api/developers/rushi</span><span class="status">200 OK</span></div>
+<pre>{
+  <span class="k">"name"</span>: <span class="s">"Rushi Vardhan Reddy G"</span>,
+  <span class="k">"role"</span>: <span class="s">"Java Full Stack Developer"</span>,
+  <span class="k">"stack"</span>: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>,
+            <span class="s">"Angular"</span>, <span class="s">"MySQL"</span>],
+  <span class="k">"languages"</span>: [<span class="s">"Telugu"</span>, <span class="s">"English"</span>],
+  <span class="k">"education"</span>: <span class="s">"B.Tech CSE (AI), 2027"</span>,
+  <span class="k">"open_to_work"</span>: true
+}<span class="cursor"></span></pre>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm a final-stage B.Tech student in Computer Science and Engineering (Artificial Intelligence). My hands-on work is in Java: Spring Boot services, REST APIs, SQL databases and Angular front ends.</p>
+    <p>I'm also interested in training and evaluating AI chatbots. I enjoy writing clear conversations, comparing model responses, and checking them for accuracy, originality and language quality, in both Telugu and English.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="rows" style="margin:0">
+      <div class="row"><dt>Languages</dt><dd class="tags"><span>Java</span><span>Python</span><span>SQL</span></dd></div>
+      <div class="row"><dt>Back end</dt><dd class="tags"><span>Spring</span><span>Spring Boot</span><span>Hibernate</span><span>REST APIs</span></dd></div>
+      <div class="row"><dt>Front end</dt><dd class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Angular</span></dd></div>
+      <div class="row"><dt>Databases</dt><dd class="tags"><span>MySQL</span><span>PostgreSQL</span></dd></div>
+      <div class="row"><dt>Testing</dt><dd class="tags"><span>JUnit</span><span>Mockito</span></dd></div>
+      <div class="row"><dt>Tools</dt><dd class="tags"><span>Git</span><span>GitHub</span><span>VS Code</span><span>IntelliJ IDEA</span></dd></div>
+      <div class="row"><dt>Concepts</dt><dd class="tags"><span>Object-Oriented Programming</span><span>Data Structures</span><span>Microservices Architecture</span><span>Database Management</span></dd></div>
+    </dl>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="role">
+      <h3>Java Full Stack Development Intern</h3>
+      <p class="muted">Ethnotech</p>
+      <ul>
+        <li>Built back-end applications with Java, Spring Boot and REST APIs.</li>
+        <li>Created front-end components with HTML, CSS, JavaScript and Angular.</li>
+        <li>Worked with SQL databases, CRUD operations and application debugging.</li>
+        <li>Used Git for source control and version history.</li>
+      </ul>
+      <div class="tags"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>MySQL</span><span>REST APIs</span><span>Git</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="proj">
+        <h3>Employee Management System</h3>
+        <ul>
+          <li>Full-stack app for managing employee records, department information and administrative tasks.</li>
+          <li>RESTful APIs, CRUD operations, database integration and form validation connecting the Angular front end to the Spring Boot back end.</li>
+        </ul>
+        <div class="tags"><span>Java 8</span><span>Spring Boot</span><span>Angular</span><span>MySQL</span><span>REST APIs</span><span>Git</span></div>
+      </article>
+      <article class="proj">
+        <h3>Library Management System</h3>
+        <ul>
+          <li>Automates book inventory, student records, book issuing and returns.</li>
+          <li>PostgreSQL database, REST APIs, and JUnit unit tests to make the application more reliable.</li>
+        </ul>
+        <div class="tags"><span>Java</span><span>Spring Boot</span><span>Angular</span><span>PostgreSQL</span><span>JUnit</span><span>Git</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div>
+        <h3>B.Tech, Computer Science and Engineering (Artificial Intelligence)</h3>
+        <p class="muted" style="margin:.3rem 0 0">Madanapalle Institute of Technology and Science</p>
+      </div>
+      <div><strong>2023 – 2027</strong><br><span class="muted">CGPA 6.8</span></div>
+    </div>
+  </section>
+
+  <section id="strengths">
+    <h2>Strengths</h2>
+    <ul class="strengths">
+      <li>Problem-solving</li><li>Quick learning</li><li>Teamwork</li><li>Communication</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Hiring, or have a project in mind? Send me an email.</p>
+    <a class="big" href="mailto:rushivardhanreddyg@gmail.com">rushivardhanreddyg@gmail.com</a>
+    <div class="links">
+      <a href="https://github.com/rushivardhanreddyg" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/rushi-vardhan-reddy-b6990a2ba" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+</div>
+</main>
+<footer><div class="wrap">© Rushi Vardhan Reddy G</div></footer>
+</body>
+</html>
